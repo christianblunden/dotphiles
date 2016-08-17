@@ -45,4 +45,7 @@ Thumbs.db
 svn-commit.*
 tags
 TAGS
+.cap_tasks
+.rake_tasks
+
 

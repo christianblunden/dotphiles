@@ -16,6 +16,23 @@ fi
 DIR=$(cd $(dirname "$0"); pwd)
 
 ###############################################################################
+# add-apt-repository
+###############################################################################
+
+if [[ -f $DIR/sources/apt ]]; then
+  exec<$DIR/sources/apt
+  while read line
+  do
+    if [[ ! "$line" =~ (^#|^$) ]]; then
+      sources="$sources $line"
+    fi
+  done
+  sudo add-apt-repository $sources
+fi
+
+sudo apt-get update
+
+###############################################################################
 # apt-get
 ###############################################################################
 
@@ -27,6 +44,6 @@ if [[ -f $DIR/packages/apt ]]; then
       packages="$packages $line"
     fi
   done
-  sudo apt-get install $packages
+  sudo apt-get install -y $packages
 fi
 

@@ -8,8 +8,23 @@
 #
 
 #zsh
-#git
-#vim
+git
+neovim
 #tmux
-#nmap
-
+nmap
+ack-grep
+exuberant-ctags
+docker.io
+postgresql-9.5
+libmysqlclient-dev
+silversearcher-ag
+xsel
+awscli
+python-setuptools
+python-crypto
+python-dev
+phantomjs
+libcurl4-openssl-dev
+jq
+imagemagick
+libmagickwand-dev

@@ -1,0 +1,10 @@
+#
+# dotphiles : https://github.com/dotphiles/dotphiles
+#
+# source to be install with add-apt-repository
+#
+# Authors:
+#    Ben O'Hara <bohara@gmail.com>
+#
+
+ppa:neovim-ppa/unstable

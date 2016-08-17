@@ -8,7 +8,7 @@
 #
 
 # Location of your dotfiles in $HOME
-# DOTFILES=.dotfiles
+DOTFILES=.dotfiles
 
 # dotfiles to symlink
 #
@@ -19,14 +19,17 @@
 # Uncomment examples below
 dotsyncrc
 #ack/ackrc
+ag/agignore
 #aptitude
-#bin:bin
-#ctags/ctags
+bash/bashrc
+bin:bin
+ctags/ctags
 #cmus
 #curl/curlrc
-#git/gitconfig
-#git/gitignore
-#git/gitattributes
+dircolors/dircolors.256dark:.dircolors
+git/gitconfig
+git/gitignore
+git/gitattributes
 #git/tigrc
 #git/gitk
 #gnupg
@@ -43,13 +46,13 @@ dotsyncrc
 #mysql/my.cnf
 #ncmpcpp/config
 #ncmpcpp/error.log
-#postgresql/psqlrc
+postgresql/psqlrc
 #python/pythonrc
 #python/pylintrc
 #rpm/rpmmacros
 #ruby/irbrc
 #ruby/pryrc
-#ruby/gemrc
+ruby/gemrc
 #ruby/railsrc
 #ruby/rdebugrc
 #ruby/aprc
@@ -57,13 +60,13 @@ dotsyncrc
 #screen/screenrc
 #shell/hushlogin
 #shell/urlview
-#ssh
+ssh
 #subversion
 #task/task
 #task/taskrc
 #tmux/tmux.conf
 #tmux/tmuxinator
-#vim/dotvim:.vim
+nvim/dotvim:.config/nvim
 #vim/vimrc
 #vim/gvimrc
 #wget/wgetrc
@@ -79,6 +82,7 @@ dotsyncrc
 # Hosts to sync
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
 [hosts]
+xian-x1				 git=ANY
 #host1.example.com               git=ANY                        files=custom/dotfile    #git repo, pull from anywhere and link a custom dotfile
 #host2.example.com               git=ANY                                                #git repo, pull from anywhere
 #host3.example.com               git=ANY                                                #git repo, pull from anywhere
