@@ -22,7 +22,7 @@ dotsyncrc
 ag/agignore
 #aptitude
 bash/bashrc
-bash/bash_profile
+bash/bash_path
 bin:bin
 ctags/ctags
 #cmus

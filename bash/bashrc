@@ -36,3 +36,6 @@ export PROJECT_PATHS=~/code:~/code/uswitch
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
+
+source $HOME/.bash_path
+
