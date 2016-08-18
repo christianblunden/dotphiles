@@ -23,8 +23,9 @@ if [[ -f $DIR/sources/apt ]]; then
   exec<$DIR/sources/apt
   while read line
   do
-    if [[ ! "$source" =~ (^#|^$) ]]; then
-      sudo add-apt-repository -y $source
+    if [[ ! "$line" =~ (^#|^$) ]]; then
+      echo "Adding apt repository $line"
+      sudo add-apt-repository $line
     fi
   done
 fi
