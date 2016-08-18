@@ -26,5 +26,4 @@ libcurl4-openssl-dev
 jq
 imagemagick
 libmagickwand-dev
-rvm
 # oracle-java8-installer # must be manually installed due to accepting licence modal popup
