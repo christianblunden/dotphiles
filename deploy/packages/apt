@@ -13,6 +13,7 @@ nmap
 ack-grep
 exuberant-ctags
 docker.io
+docker-compose
 postgresql-9.5
 libmysqlclient-dev
 silversearcher-ag
