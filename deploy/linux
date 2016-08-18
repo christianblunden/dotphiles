@@ -24,10 +24,9 @@ if [[ -f $DIR/sources/apt ]]; then
   while read line
   do
     if [[ ! "$line" =~ (^#|^$) ]]; then
-      sources="$sources $line"
+      sudo add-apt-repository $line
     fi
   done
-  sudo add-apt-repository $sources
 fi
 
 sudo apt-get update
