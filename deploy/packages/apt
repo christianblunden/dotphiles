@@ -7,10 +7,8 @@
 #    Ben O'Hara <bohara@gmail.com>
 #
 
-#zsh
 git
 neovim
-#tmux
 nmap
 ack-grep
 exuberant-ctags
@@ -28,4 +26,5 @@ libcurl4-openssl-dev
 jq
 imagemagick
 libmagickwand-dev
-oracle-java8-installer
+rvm
+# oracle-java8-installer # must be manually installed due to accepting licence modal popup
