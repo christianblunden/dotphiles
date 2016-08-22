@@ -70,6 +70,7 @@ ssh
 nvim/dotvim:.config/nvim
 #vim/vimrc
 #vim/gvimrc
+vpn:.vpn
 #wget/wgetrc
 #zsh/fasdrc
 #zsh/dotzsh:.zsh

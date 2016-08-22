@@ -12,7 +12,7 @@ neovim
 nmap
 ack-grep
 exuberant-ctags
-docker.io
+docker-engine
 docker-compose
 postgresql-9.5
 libmysqlclient-dev
@@ -24,6 +24,7 @@ python-crypto
 python-dev
 phantomjs
 libcurl4-openssl-dev
+openvpn
 jq
 imagemagick
 libmagickwand-dev

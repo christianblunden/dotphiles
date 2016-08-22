@@ -1,2 +1,2 @@
 # set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rvm/bin:$PATH"
+PATH="$HOME/.rvm/bin:$HOME/bin:$HOME/.local/bin:$PATH"
