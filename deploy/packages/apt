@@ -15,6 +15,7 @@ exuberant-ctags
 docker-engine
 docker-compose
 postgresql-9.5
+libpq-dev
 libmysqlclient-dev
 silversearcher-ag
 xsel
@@ -27,5 +28,6 @@ libcurl4-openssl-dev
 openvpn
 jq
 imagemagick
+libmagickcore-dev
 libmagickwand-dev
 # oracle-java8-installer # must be manually installed due to accepting licence modal popup
