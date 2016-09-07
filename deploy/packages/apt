@@ -30,4 +30,5 @@ jq
 imagemagick
 libmagickcore-dev
 libmagickwand-dev
+npm
 # oracle-java8-installer # must be manually installed due to accepting licence modal popup
