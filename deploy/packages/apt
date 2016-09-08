@@ -17,6 +17,7 @@ docker-compose
 postgresql-9.5
 libpq-dev
 libmysqlclient-dev
+mariadb-client-core-10.0
 silversearcher-ag
 xsel
 awscli
@@ -33,4 +34,5 @@ libmagickwand-dev
 nodejs
 nodejs-legacy
 npm
+apache2-utils
 # oracle-java8-installer # must be manually installed due to accepting licence modal popup
