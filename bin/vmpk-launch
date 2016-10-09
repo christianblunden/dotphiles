@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Launch vmpk and connect it to fluidsynth.
+# Based on a script by Antonio Bonifati.
+
+# If vmpk isn't running
+if ! pgrep "^vmpk$"
+then
+    # Launch vmpk
+    vmpk &
+    # Wait for it to come up.
+    sleep 1
+fi
+
+# Use aconnect to get the ports
+vmpkport=$(aconnect -i | grep "client.*VMPK Output" | cut -d ' ' -f 2)0
+synthport=$(aconnect -o | grep "FLUID Synth" | cut -d ' ' -f 2)0
+
+echo vmpk output port: $vmpkport
+echo fluidsynth input port: $synthport
+
+# Connect the ports
+aconnect $vmpkport $synthport

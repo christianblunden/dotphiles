@@ -33,6 +33,7 @@ export SCM_CHECK=true
 #export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
 
 export PROJECT_PATHS=~/code:~/code/uswitch
+export LOCAL_IP=$(ip route get 8.8.8.8 | awk '{print $NF; exit}')
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
