@@ -1,2 +1,2 @@
-# set PATH so it includes user's private bin directories
-PATH="$HOME/.rvm/bin:/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16:$HOME/bin:$HOME/.local/bin:$PATH"
+# set PATH so it includes user's private bin directories/
+PATH="$HOME/.rvm/bin:/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16:$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
