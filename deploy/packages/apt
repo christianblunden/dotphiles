@@ -35,4 +35,5 @@ nodejs
 nodejs-legacy
 npm
 apache2-utils
+r-base
 # oracle-java8-installer # must be manually installed due to accepting licence modal popup
