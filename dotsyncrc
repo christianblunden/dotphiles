@@ -23,6 +23,7 @@ ag/agignore
 #aptitude
 bash/bashrc
 bash/bash_path
+bash/functions
 bin:bin
 ctags/ctags
 #cmus

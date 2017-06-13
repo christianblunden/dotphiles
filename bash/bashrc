@@ -7,7 +7,7 @@ export BASH_IT="/home/christianblunden/.bash_it"
 # location /.bash_it/themes/
 export BASH_IT_THEME='zork'
 # export TERM=xterm-256color
-test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+# test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -35,11 +35,13 @@ export SCM_CHECK=true
 export PROJECT_PATHS=~/code:~/code/uswitch
 export LOCAL_IP=$(ip route get 8.8.8.8 | awk '{print $NF; exit}')
 export GOPATH=$HOME/code/gopath
+export ALERTA_CONF_FILE=~/.alerta.conf
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
 source $HOME/.bash_path
+source $HOME/.bash_functions
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -48,3 +50,14 @@ source '/home/christianblunden/code/google-cloud-sdk/path.bash.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/home/christianblunden/code/google-cloud-sdk/completion.bash.inc'
+
+function suspend_cronjobs() {
+  if [ ! -z $1 ]; then
+    kubectl -n broadband get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
+  else
+    kubectl -n broadband get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
+  fi
+}
+
+# Adds shell completion for uSwitch u tool
+eval "$(u --completion-script-bash)"

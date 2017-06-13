@@ -1,0 +1,20 @@
+kb ()
+{
+    kubectl -n broadband "$@"
+}
+
+function suspend_cronjobs() {
+  if [ ! -z $1 ]; then
+    kubectl -n broadband get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
+  else
+    kubectl -n broadband get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
+  fi
+}
+
+function enable_cronjobs() {
+  if [ ! -z $1 ]; then
+    kubectl -n broadband get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": false}}'
+  else
+    kubectl -n broadband get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": false}}'
+  fi
+}
