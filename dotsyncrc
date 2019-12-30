@@ -24,6 +24,7 @@ ag/agignore
 bash/bashrc
 bash/bash_path
 bash/bash_functions
+bash/bash_secrets
 bin:bin
 ctags/ctags
 #cmus

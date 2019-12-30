@@ -1,20 +1,33 @@
 kb ()
 {
-    kubectl -n broadband "$@"
+  kubectl -n ${KUBE_NS:-broadband} "$@"
 }
 
-function suspend_cronjobs() {
+kbns ()
+{
+  echo "Setting Kube namespace to ${1:-broadband}"
+  export KUBE_NS=${1:-broadband}
+}
+
+kpods ()
+{
+  kb get pods -a
+}
+
+function suspend_cronjobs()
+{
   if [ ! -z $1 ]; then
-    kubectl -n broadband get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
+    kb get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n ${KUBE_NS:-broadband} patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
   else
-    kubectl -n broadband get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
+    kb get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n ${KUBE_NS:-broadband} patch cronjob JOB_NAME -p '{"spec": {"suspend": true}}'
   fi
 }
 
-function enable_cronjobs() {
+function enable_cronjobs()
+{
   if [ ! -z $1 ]; then
-    kubectl -n broadband get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": false}}'
+    kb get cronjob | grep $1 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n ${KUBE_NS:-broadband} patch cronjob JOB_NAME -p '{"spec": {"suspend": false}}'
   else
-    kubectl -n broadband get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n broadband patch cronjob JOB_NAME -p '{"spec": {"suspend": false}}'
+    kb get cronjob | tail -n +2 | awk '{print $1;}' | xargs -L 1 -n 1 -I JOB_NAME kubectl -n ${KUBE_NS:-broadband} patch cronjob JOB_NAME -p '{"spec": {"suspend": false}}'
   fi
 }
